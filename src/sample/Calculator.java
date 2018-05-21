@@ -38,12 +38,14 @@ public class Calculator
     double number2;
     byte operation;
     String result;
+    String savedResult;
 
     public Calculator() {
         number1 = 0;
         number2 = 0;
         operation = 0;
         result = "0";
+        savedResult="0";
     }
 
     public void calculate()

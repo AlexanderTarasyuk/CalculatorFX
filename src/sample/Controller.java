@@ -21,7 +21,7 @@ public class Controller {
         txtData = new TextField();
         calculator = new Calculator();
         isSecondNumber = false;
-        btnResult=new Button();
+        btnResult = new Button();
     }
 
 
@@ -75,10 +75,10 @@ public class Controller {
                     //txtData.setAlignment(Pos.CENTER_LEFT);
                     break;
                 case "M+":
-                    calculator.result = txtData.getText();
+                    calculator.savedResult = txtData.getText();
                     break;
                 case "M-":
-                    txtData.setText(calculator.result);
+                    txtData.setText(calculator.savedResult);
                     break;
                 default:
                     calculator.operation = 0;
