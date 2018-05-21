@@ -1,7 +1,17 @@
 package sample;
 
-public class Calculator
-{
+public class Calculator {
+
+
+    private double number1;
+    private double number2;
+    private byte operation;
+    private String result;
+
+
+
+    private String savedResult;
+
     public double getNumber1() {
         return number1;
     }
@@ -34,47 +44,48 @@ public class Calculator
         this.result = result;
     }
 
-    double number1;
-    double number2;
-    byte operation;
-    String result;
-    String savedResult;
+    public String getSavedResult() {
+        return savedResult;
+    }
+
+    public void setSavedResult(String savedResult) {
+        this.savedResult = savedResult;
+    }
+
 
     public Calculator() {
         number1 = 0;
         number2 = 0;
         operation = 0;
         result = "0";
-        savedResult="0";
+        savedResult = "0";
     }
 
-    public void calculate()
-    {
-        switch (operation)
-        {
-            case 1 :  // +
+    public void calculate() {
+        switch (operation) {
+            case 1:  // +
                 result = String.valueOf(number1 + number2);
                 break;
-            case 2 :  // -
+            case 2:  // -
                 result = String.valueOf(number1 - number2);
                 break;
-            case 3 :  // *
+            case 3:  // *
                 result = String.valueOf(number1 * number2);
                 break;
-            case 4 :  // /
-                result = number2 == 0? "Division by zero" : String.valueOf(number1 / number2);
+            case 4:  // /
+                result = number2 == 0 ? "Division by zero" : String.valueOf(number1 / number2);
                 break;
-            case 5 :  // x^y
-                result = number2 == 0? "Division by zero" : String.valueOf(Math.pow(number1,  number2));
+            case 5:  // x^y
+                result = number2 == 0 ? "Division by zero" : String.valueOf(Math.pow(number1, number2));
                 break;
-            case 6 : // √
-                result = number1 < 0? "No SQRT from negative" : String.valueOf(Math.sqrt(number1));
+            case 6: // √
+                result = number1 < 0 ? "No SQRT from negative" : String.valueOf(Math.sqrt(number1));
                 break;
-                default:
-                    result = "Unknown operation";
+            default:
+                result = "Unknown operation";
         }
 
-        result = result.endsWith("0")?result.substring(0,result.length()-2):result;
+        result = result.endsWith("0") ? result.substring(0, result.length() - 2) : result;
 
     }
 }

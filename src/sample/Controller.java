@@ -12,10 +12,10 @@ import javafx.scene.control.TextField;
 public class Controller {
     @FXML
     public TextField txtData;
+    @FXML
+    Button btnResult;
     private Calculator calculator;
     private boolean isSecondNumber;
-    Button btnResult;
-
 
     public Controller() {
         txtData = new TextField();
@@ -50,38 +50,40 @@ public class Controller {
     }
 
     public void btnPairOperationClick(ActionEvent actionEvent) {
+        btnResult.setDisable(true); //// !!!!!!!
+
         try {
-            calculator.number1 = Double.parseDouble(txtData.getText());
+            calculator.setNumber1(Double.parseDouble(txtData.getText()));
             switch (((Button) actionEvent.getSource()).getText()) {
                 case "+":
-                    calculator.operation = 1;
+                    calculator.setOperation((byte) 1);
                     break;
                 case "-":
-                    calculator.operation = 2;
+                    calculator.setOperation((byte) 2);
                     break;
                 case "*":
-                    calculator.operation = 3;
+                    calculator.setOperation((byte) 3);
                     break;
                 case "/":
-                    calculator.operation = 4;
+                    calculator.setOperation((byte) 4);
                     break;
                 case "x^y":
-                    calculator.operation = 5;
+                    calculator.setOperation((byte) 5);
                     break;
                 case "√":
-                    calculator.operation = 6;
+                    calculator.setOperation((byte) 6);
                     calculator.calculate();
-                    txtData.setText(calculator.result);
+                    txtData.setText(calculator.getResult());
                     //txtData.setAlignment(Pos.CENTER_LEFT);
                     break;
                 case "M+":
-                    calculator.savedResult = txtData.getText();
+                    calculator.setSavedResult(txtData.getText());
                     break;
                 case "M-":
-                    txtData.setText(calculator.savedResult);
+                    txtData.setText(calculator.getSavedResult());
                     break;
                 default:
-                    calculator.operation = 0;
+                    calculator.setOperation((byte) 0);
             }
             isSecondNumber = true;
             //txtData.setText("0");
@@ -92,15 +94,15 @@ public class Controller {
     }
 
     public void btnResultClick(ActionEvent actionEvent) {
-        btnResult.setDisable(false);  /// !!!!!
+
         try {
-            calculator.number2 = Double.parseDouble(txtData.getText());
+            calculator.setNumber2(Double.parseDouble(txtData.getText()));
         } catch (Exception ex) {
             txtData.setText("Number conversion error");
         }
 
         calculator.calculate();
-        txtData.setText(calculator.result);
+        txtData.setText(calculator.getResult());
         btnResult.setDisable(true); //// !!!!!!!
     }
 
