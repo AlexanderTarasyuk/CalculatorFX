@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+    <AnchorPane fx:id="btnSaveResult" maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
          <children>
             <Button fx:id="btn7" alignment="CENTER" layoutX="21.0" layoutY="148.0" mnemonicParsing="false" onAction="#btnNumberClick" prefHeight="50.0" prefWidth="50.0" text="7">
                <font>
@@ -117,9 +112,11 @@
             </Button>
             <TextField fx:id="txtData" alignment="CENTER_RIGHT" editable="false" layoutX="21.0" layoutY="25.0" prefHeight="107.0" prefWidth="596.0" text="0">
                <font>
-                  <Font size="50.0" />
+                  <Font size="40.0" />
                </font>
             </TextField>
+            <Button fx:id="btnSaveResult" layoutX="383.0" layoutY="148.0" mnemonicParsing="false" onAction="#saveResultToMemory" prefHeight="50.0" prefWidth="52.0" text="M+" />
+            <Button fx:id="btnExtractResult" layoutX="383.0" layoutY="208.0" mnemonicParsing="false" onAction="#extractResultFromMemory" prefHeight="50.0" prefWidth="52.0" text="M-" />
          </children>
     </AnchorPane>
   </children>
